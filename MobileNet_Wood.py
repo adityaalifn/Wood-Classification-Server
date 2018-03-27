@@ -7,7 +7,6 @@ import image_crop
 import os
 
 if __name__ == '__main__':
-
     save_dir = os.path.join(os.getcwd(), 'saved_models')
     model_name = 'MobileNet_wood_model.hdf5'
     weight_name = 'MobileNet_wood_weight.hdf5'

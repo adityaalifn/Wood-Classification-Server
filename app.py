@@ -1,10 +1,14 @@
 from flask import Flask, request, json, render_template
-import os
-import uuid
+from flask_sqlalchemy import SQLAlchemy
+import os, uuid, predict, image_operation
 
 app = Flask(__name__)
-base_path = os.path.abspath(os.path.dirname(__file__))
+APP_ROOT = os.path.abspath(os.path.dirname(__file__))
 
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root@localhost/wood'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
 
 @app.route("/")
 def index():
@@ -17,7 +21,8 @@ def upload():
         file = request.files['file']
         extension = os.path.splitext(file.filename)[1]
         f_name = str(uuid.uuid4()) + extension
-        file.save(os.path.join(base_path, "static\\USER_IMAGE", f_name))
+        file.save(os.path.join(APP_ROOT, "static\\USER_IMAGE", f_name))
+        predict.predict_class("static\\USER_IMAGE\\"+f_name)
         return json.dumps({'filename': f_name})
 
 
