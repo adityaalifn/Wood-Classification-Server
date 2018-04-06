@@ -20,8 +20,8 @@ def upload():
         file = request.files['file']
         extension = os.path.splitext(file.filename)[1]
         f_name = str(uuid.uuid4()) + extension
-        file.save("static/USER_IMAGE/"+f_name)
-        result = predict.predict_class("static/USER_IMAGE/"+f_name)
+        file.save("./static/USER_IMAGE/"+f_name)
+        result = predict.predict_class("./static/USER_IMAGE/"+f_name)
         return json.dumps({'filename': f_name, 'result': result})
 
 
