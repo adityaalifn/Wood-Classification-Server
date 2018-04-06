@@ -17,6 +17,10 @@ def index():
 def upload():
     if request.method == 'POST':
         target = os.path.join(APP_ROOT, "static/USER_IMAGE")
+
+        if not os.path.isdir(target):
+            os.mkdir(target)
+
         file = request.files['file']
         extension = os.path.splitext(file.filename)[1]
         f_name = str(uuid.uuid4()) + extension
