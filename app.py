@@ -16,10 +16,11 @@ def index():
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
     if request.method == 'POST':
+        target = os.path.join(APP_ROOT, "static/USER_IMAGE")
         file = request.files['file']
         extension = os.path.splitext(file.filename)[1]
         f_name = str(uuid.uuid4()) + extension
-        file.save(os.path.join("static/USER_IMAGE", f_name))
+        file.save("static/USER_IMAGE/"+f_name)
         result = predict.predict_class("static/USER_IMAGE/"+f_name)
         return json.dumps({'filename': f_name, 'result': result})
 
