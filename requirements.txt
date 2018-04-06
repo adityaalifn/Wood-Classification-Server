@@ -29,7 +29,7 @@ scipy==1.0.1
 six==1.11.0
 SQLAlchemy==1.2.6
 tensorboard==1.7.0
-tensorflow==1.7.0
+tensorflow==1.0.0
 termcolor==1.1.0
 Werkzeug==0.14.1
 wrapt==1.10.11
