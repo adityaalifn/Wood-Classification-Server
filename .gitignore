@@ -1,3 +1,4 @@
 .vscode
 .idea
-static/saved_models
+static/USER_IMAGE
+__pycache__

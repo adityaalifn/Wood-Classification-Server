@@ -1,13 +1,10 @@
-from keras.applications import MobileNet
-import keras
+from keras import models
 import image_operation
 import numpy as np
 import h5py
 
 def predict_class(img_input):
-    model = MobileNet(include_top=True, weights=None, classes=2,
-                      pooling='max', input_shape=(200, 200, 3))
-    model.load_weights("./static/1_MobileNet_wood_weight.hdf5")
+    model = models.load_model("./static/xceptionMobile_wood_model.h5")
     # print("path: " + img_input)
     #print(np.shape(np.expand_dims(image_operation.image_input(APP_ROOT + "/" + img_input), axis=0)))
     img = np.expand_dims(image_operation.image_input(img_input), axis=0)
