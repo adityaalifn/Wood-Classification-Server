@@ -3,6 +3,7 @@ import image_operation
 import numpy as np
 import h5py
 
+
 def predict_class(img_input):
     model = models.load_model("./static/xceptionMobile_wood_model.h5")
     # print("path: " + img_input)
