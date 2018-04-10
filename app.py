@@ -29,9 +29,5 @@ def upload():
         return json.dumps({'filename': f_name, 'result': result})
 
 
-def main():
-    app.run()
-
-
 if __name__ == '__main__':
-    main()
+    app.run()
