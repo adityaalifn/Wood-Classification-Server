@@ -1,11 +1,13 @@
 from flask import Flask, request, json, render_template
 import os
 import uuid
-import predict
-import image_operation
+from predict import predict_class
+# from keras import models
+
 
 app = Flask(__name__)
 APP_ROOT = os.path.abspath(os.path.dirname(__file__))
+# model = models.load_model("./static/xceptionMobile_wood_model.h5")
 
 
 @app.route("/")
@@ -25,9 +27,13 @@ def upload():
         extension = os.path.splitext(file.filename)[1]
         f_name = str(uuid.uuid4()) + extension
         file.save("./static/USER_IMAGE/"+f_name)
-        result = predict.predict_class("./static/USER_IMAGE/"+f_name)
+        result = predict_class("./static/USER_IMAGE/"+f_name)
         return json.dumps({'filename': f_name, 'result': result})
 
 
-if __name__ == '__main__':
+def main():
     app.run()
+
+
+if __name__ == '__main__':
+    main()
