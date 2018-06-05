@@ -8,6 +8,9 @@ from predict import predict_class
 app = Flask(__name__)
 APP_ROOT = os.path.abspath(os.path.dirname(__file__))
 # model = models.load_model("./static/xceptionMobile_wood_model.h5")
+# model = MobileNet(include_top=True, weights=None, classes=2,
+#                   pooling='max', input_shape=(200, 200, 3))
+# model.load_weights("./static/1_MobileNet_wood_weight.hdf5")
 
 
 @app.route("/")

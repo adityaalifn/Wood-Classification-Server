@@ -2,10 +2,10 @@ from PIL import Image
 import numpy as np
 
 
-def image_input(img_path, dim=(200, 200)):
+def image_input(img_path, dim=(150, 150)):
     img = Image.open(img_path)
-    img_new = crop_center(img)
-    return np.asarray(img_new.resize((200, 200), Image.ANTIALIAS))
+    # img_new = crop_center(img)
+    return np.asarray(img.resize(dim, Image.ANTIALIAS))
     # return cv2.resize(img_arr, dim, interpolation=cv2.INTER_AREA)
 
 

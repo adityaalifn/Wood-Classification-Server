@@ -1,0 +1,1 @@
+['Akasia', 'Kamper', 'Karet', 'Keruing', 'Mahoni', 'Manggis', 'Mersawa', 'Ramin']
